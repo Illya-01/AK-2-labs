@@ -18,7 +18,7 @@ MODULE_PARM_DESC(display_times, "Number of times to show 'Hello, World!'");
 struct array_node
 {
 	struct list_head list_node;
-	ktime_t timemarker;
+	ktime_t time_marker;
 };
 
 static LIST_HEAD(Head_Node);
@@ -41,7 +41,7 @@ static int __init hello_init(void)
 	{
 		struct array_node *md = kmalloc(sizeof(*md), GFP_KERNEL);
 
-		md->timemarker = ktime_get();
+		md->time_marker = ktime_get();
 		list_add(&md->list_node, &Head_Node);
 
 		printk(KERN_EMERG "Hello, World! 👋\n");
